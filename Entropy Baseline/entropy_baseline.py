@@ -166,7 +166,7 @@ for animal in animal_names:
 # In[ ]: all entropies are collated in  C:\Users\ngurel\Documents\Stellate_Recording_Files\Data\junk entropy_all.csv      
 from statsmodels.stats.anova import AnovaRM
 
-entropy_file = 'C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/junk/entropy_all.csv'
+entropy_file = './entropy_all.csv'
 
 df_entropy = pd.read_csv(entropy_file)
 
