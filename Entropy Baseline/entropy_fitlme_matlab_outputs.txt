@@ -1,0 +1,78 @@
+>> T = readtable('entropy_all_numerical2.csv');
+
+>> lme=fitlme(T, 'entropy_mean ~ animal_type + (1|channel) + (1|animal)')
+
+lme = 
+
+
+Linear mixed-effects model fit by ML
+
+Model information:
+    Number of observations             191
+    Fixed effects coefficients           2
+    Random effects coefficients         30
+    Covariance parameters                3
+
+Formula:
+    entropy_mean ~ 1 + animal_type + (1 | channel) + (1 | animal)
+
+Model fit statistics:
+    AIC        BIC        LogLikelihood    Deviance
+    -729.48    -713.22    369.74           -739.48 
+
+Fixed effects coefficients (95% CIs):
+    Name                   Estimate    SE          tStat     DF     pValue        Lower         Upper   
+    {'(Intercept)'}         0.28804    0.039587    7.2762    189    8.9162e-12       0.20995     0.36613
+    {'animal_type'}        0.041335    0.024042    1.7193    189      0.087204    -0.0060907    0.088761
+
+Random effects covariance parameters (95% CIs):
+Group: channel (16 Levels)
+    Name1                  Name2                  Type           Estimate     Lower         Upper   
+    {'(Intercept)'}        {'(Intercept)'}        {'std'}        0.0037898    0.00031191    0.046047
+
+Group: animal (14 Levels)
+    Name1                  Name2                  Type           Estimate    Lower      Upper   
+    {'(Intercept)'}        {'(Intercept)'}        {'std'}        0.0437      0.02971    0.064278
+
+Group: Error
+    Name               Estimate    Lower       Upper   
+    {'Res Std'}        0.030707    0.027534    0.034246
+
+>> 
+>> lme=fitlme(T, 'entropy_std ~ animal_type + (1|channel) + (1|animal)')
+
+lme = 
+
+
+Linear mixed-effects model fit by ML
+
+Model information:
+    Number of observations             191
+    Fixed effects coefficients           2
+    Random effects coefficients         30
+    Covariance parameters                3
+
+Formula:
+    entropy_std ~ 1 + animal_type + (1 | channel) + (1 | animal)
+
+Model fit statistics:
+    AIC        BIC        LogLikelihood    Deviance
+    -1168.7    -1152.5    589.37           -1178.7 
+
+Fixed effects coefficients (95% CIs):
+    Name                   Estimate    SE           tStat     DF     pValue        Lower        Upper   
+    {'(Intercept)'}        0.052899    0.0067716    7.8119    189    3.7905e-13     0.039541    0.066257
+    {'animal_type'}        0.010929    0.0041224     2.651    189     0.0087053    0.0027968     0.01906
+
+Random effects covariance parameters (95% CIs):
+Group: channel (16 Levels)
+    Name1                  Name2                  Type           Estimate      Lower    Upper
+    {'(Intercept)'}        {'(Intercept)'}        {'std'}        3.0294e-12    NaN      NaN  
+
+Group: animal (14 Levels)
+    Name1                  Name2                  Type           Estimate     Lower        Upper   
+    {'(Intercept)'}        {'(Intercept)'}        {'std'}        0.0070908    0.0046305    0.010858
+
+Group: Error
+    Name               Estimate    Lower        Upper   
+    {'Res Std'}        0.010278    0.0092623    0.011406
