@@ -41,7 +41,7 @@ def getMeanStdEntropy(entropy):
     return np.mean(entropy), np.std(entropy)
 
 # In[ ]:
-root_dir = './NormalAnimals'
+root_dir = '../NormalAnimals'
 animal_names = os.listdir(root_dir) #Normals
 
 normal_mean_entropy = []
@@ -100,7 +100,7 @@ for animal in animal_names:
 
 # In[ ]: HF animals: 1666, 1670, 1690,  1692, 1767, 1774, 1841, 1843
     
-root_dir = './HeartFailureAnimals'
+root_dir = '../HeartFailureAnimals'
 # animals_entropy = [1666, 1767, 1769, 1774, 1841, 1843, 1670, 1692, 1690]
 animal_names = os.listdir(root_dir) #HFs
 
