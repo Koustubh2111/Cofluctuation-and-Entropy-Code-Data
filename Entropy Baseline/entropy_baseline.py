@@ -12,11 +12,13 @@ import sys
 from statannot import add_stat_annotation
 
 def getEntropy(filename):
-        
+    #Input : Filename - The path of the .csv file containing entropy series
+    #Output : Extracted entropy
     df = pd.read_csv(filename)
     time = df['time']
     entropy = df['shannon_entropy']
     
+    #-999 values are removed
     index = entropy > 0
     time = time[index]
     entropy = entropy[index]
@@ -24,7 +26,7 @@ def getEntropy(filename):
     #Remove repeated values
     filtered_entropy_index = np.nonzero(np.abs(np.diff(entropy)))[0]
     
-    #Convert to entropy to array to prevent depreciation
+    #Convert to entropy to array to prevent old version depreciation
     entropy = np.array(entropy)
     time = np.array(time)
     
@@ -34,11 +36,12 @@ def getEntropy(filename):
     return time, entropy
 
 def getMeanStdEntropy(entropy):    
-    
+    #Input : entropy - extracted entropy from getEntropy
+    #Output : Mean and Std of entropy
     return np.mean(entropy), np.std(entropy)
 
 # In[ ]:
-root_dir = 'C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/NormalAnimals'
+root_dir = './NormalAnimals'
 animal_names = os.listdir(root_dir) #Normals
 
 normal_mean_entropy = []
@@ -58,19 +61,21 @@ for animal in animal_names:
     channel_mean = []
     channel_std = []
     
+    #Looping through 16 channels in animal 
     for channel in sorted(os.listdir(animal_attmetric_dir)):
         
         channel_dir = animal_attmetric_dir + channel + '/'
         
         channel_csv_list = [file for file in glob.glob( channel_dir +"*.csv")]
         
+        #Get all the event names including baseline
         event_names = [event_filename.split('\\', 10)[-1] for event_filename in channel_csv_list]
 
         #isoalte baseline csv
         event_name = [event_name for event_name in event_names \
             if ("0_shannon" in event_name) and (event_name[event_name.find("0_shannon") - 1] != '1')][0]
             
-        print(animal, channel, event_name)
+        #print(animal, channel, event_name)
         event_filename = channel_dir + event_name
         
         time, entropy = getEntropy(event_filename)
@@ -95,25 +100,7 @@ for animal in animal_names:
 
 # In[ ]: HF animals: 1666, 1670, 1690,  1692, 1767, 1774, 1841, 1843
     
-"""
-here are koustubh's notes but there are 9 animals here not 8..
-
-1666	PVC	8Weeks	
-1767	PVC	8Weeks	#Channel 1 is bad
-1769	PVC	8Weeks	
-1774	PVC	8Weeks	#Channel 16 is bad
-1841	PVC	8Weeks	
-1843	PVC	8Weeks	
-1670	PVC+RTX	8Weeks	
-1692	PVC+RTX	8Weeks	
-1690	PVC+RTX	8Weeks	
-1768	PVC+RTX	8Weeks	#Dont use
-1770	PVC+RTX	8Weeks	#Dont use
-1844	PVC+RTX	8Weeks	#Dont use
-
-"""
-
-root_dir = 'C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/HeartFailureAnimals'
+root_dir = './HeartFailureAnimals'
 # animals_entropy = [1666, 1767, 1769, 1774, 1841, 1843, 1670, 1692, 1690]
 animal_names = os.listdir(root_dir) #HFs
 
@@ -185,9 +172,6 @@ df_entropy = pd.read_csv(entropy_file)
 
 print(AnovaRM(data=df_entropy, depvar='entropy_mean', subject='animal', within=['animal_type'], aggregate_func='mean').fit())
 
-
-import statsmodels.api as sm
-import statsmodels.formula.api as smf
 
 
 
