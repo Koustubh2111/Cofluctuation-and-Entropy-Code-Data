@@ -1,0 +1,43 @@
+>> lme=fitlme(T, 'Entropy_Mean ~ Event_type + Animal_Type + Coact_Type + (1|Animal) + (1|Baseline_Entropy_Mean) + (1|Channel)') % p(Event_type) = 0.00062627, p(Animal_Type) = 0.075097 
+
+lme = 
+
+
+Linear mixed-effects model fit by ML
+
+Model information:
+    Number of observations             536
+    Fixed effects coefficients           4
+    Random effects coefficients        160
+    Covariance parameters                4
+
+Formula:
+    Entropy_Mean ~ 1 + Event_type + Coact_Type + Animal_Type + (1 | Animal) + (1 | Baseline_Entropy_Mean) + (1 | Channel)
+
+Model fit statistics:
+    AIC        BIC        LogLikelihood    Deviance
+    -2138.8    -2104.5    1077.4           -2154.8 
+
+Fixed effects coefficients (95% CIs):
+    Name                   Estimate     SE           tStat     DF     pValue        Lower         Upper    
+    {'(Intercept)'}          0.24438     0.055909    4.3711    532    1.4875e-05       0.13455      0.35421
+    {'Event_type' }        0.0073207    0.0021252    3.4448    532    0.00061668      0.003146     0.011495
+    {'Coact_Type' }        0.0031197    0.0021252     1.468    532       0.14271    -0.0010551    0.0072945
+    {'Animal_Type'}         0.059449     0.033327    1.7838    532      0.075029    -0.0060207      0.12492
+
+Random effects covariance parameters (95% CIs):
+Group: Animal (10 Levels)
+    Name1                  Name2                  Type           Estimate    Lower       Upper   
+    {'(Intercept)'}        {'(Intercept)'}        {'std'}        0.05085     0.032324    0.079994
+
+Group: Baseline_Entropy_Mean (134 Levels)
+    Name1                  Name2                  Type           Estimate    Lower       Upper   
+    {'(Intercept)'}        {'(Intercept)'}        {'std'}        0.029638    0.025371    0.034622
+
+Group: Channel (16 Levels)
+    Name1                  Name2                  Type           Estimate     Lower        Upper   
+    {'(Intercept)'}        {'(Intercept)'}        {'std'}        0.0059456    0.0011473    0.030813
+
+Group: Error
+    Name               Estimate    Lower       Upper   
+    {'Res Std'}        0.024601    0.022958    0.026361

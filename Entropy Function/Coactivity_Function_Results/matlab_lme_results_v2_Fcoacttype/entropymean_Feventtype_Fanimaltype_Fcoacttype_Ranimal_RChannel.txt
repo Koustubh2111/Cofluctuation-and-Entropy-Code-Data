@@ -1,0 +1,39 @@
+>> lme=fitlme(T, 'Entropy_Mean ~ Event_type + Animal_Type + Coact_Type + (1|Animal) + (1|Channel)') % % p(Event_type) = 0.021971,  p(Animal_Type) = 0.072527 
+
+lme = 
+
+
+Linear mixed-effects model fit by ML
+
+Model information:
+    Number of observations             536
+    Fixed effects coefficients           4
+    Random effects coefficients         26
+    Covariance parameters                3
+
+Formula:
+    Entropy_Mean ~ 1 + Event_type + Coact_Type + Animal_Type + (1 | Animal) + (1 | Channel)
+
+Model fit statistics:
+    AIC        BIC        LogLikelihood    Deviance
+    -1937.5    -1907.5    975.74           -1951.5 
+
+Fixed effects coefficients (95% CIs):
+    Name                   Estimate     SE           tStat      DF     pValue        Lower         Upper   
+    {'(Intercept)'}          0.24404     0.055968     4.3603    532    1.5599e-05       0.13409     0.35398
+    {'Event_type' }        0.0073207    0.0031833     2.2998    532      0.021848     0.0010674    0.013574
+    {'Coact_Type' }        0.0031197    0.0031833    0.98003    532       0.32752    -0.0031336    0.009373
+    {'Animal_Type'}           0.0597     0.033178     1.7994    532      0.072525    -0.0054762     0.12488
+
+Random effects covariance parameters (95% CIs):
+Group: Animal (10 Levels)
+    Name1                  Name2                  Type           Estimate    Lower      Upper  
+    {'(Intercept)'}        {'(Intercept)'}        {'std'}        0.051136    0.03283    0.07965
+
+Group: Channel (16 Levels)
+    Name1                  Name2                  Type           Estimate    Lower        Upper   
+    {'(Intercept)'}        {'(Intercept)'}        {'std'}        0.01067     0.0065751    0.017316
+
+Group: Error
+    Name               Estimate    Lower       Upper   
+    {'Res Std'}        0.036849    0.034658    0.039178
