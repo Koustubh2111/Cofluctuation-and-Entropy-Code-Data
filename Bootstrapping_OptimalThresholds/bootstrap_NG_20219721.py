@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sun Jul 18 18:18:50 2021
-
 @author: NGurel
 
 bootstrapping based on event  rate on one animal
@@ -103,7 +101,7 @@ def draw_bs_replicates(denom,time,stats,size):
 
 
 # In[ ]: EXAMPLE ONE ANIMAL
-df = pd.read_csv('C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/HeartFailureAnimals/pig1844/SpikerateCoact_output_1min_20minbuff_0p6/coactivity_stats.csv')
+df = pd.read_csv('../HeartFailureAnimals/pig1844/SpikerateCoact_output_1min_20minbuff_0p6/coactivity_stats.csv')
 time = df['time']
 stats = df['coactivity_stat']
 
@@ -178,7 +176,7 @@ lw_EndBaseline = 3
 
 # In[ ]: Data: HF Animals
 
-HF_path = 'C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/HeartFailureAnimals/'
+HF_path = '../HeartFailureAnimals/'
 filenames = os.listdir(HF_path)
 filenames = [f for f in filenames if (f.startswith("pig"))]
 
