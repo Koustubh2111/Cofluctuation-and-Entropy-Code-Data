@@ -60,15 +60,11 @@ def getStartStopEventTimeStamps(time, stats, threshold, toggle = True):
     transition_stamps_end = []
     for i in range(len(state_array) - 1):
         if (state_array[i] - state_array[i + 1]) == 1:
-            transition_stamps_end.append(time[i + 1])
-        
-            
-    
-            
+            transition_stamps_end.append(time[i + 1])      
+
     return transition_stamps_start, transition_stamps_end
     
-    
-    
+
 def getEventRateFromSeries(time, stats, threshold):
     
     #Takes the coact array after baseline extraction and returns event rate in baseline
