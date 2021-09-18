@@ -21,7 +21,7 @@ from statannot import add_stat_annotation
 
 final_dataset = []
 
-norm_dir = '/media/dal/AWS/NormalAnimals/'
+norm_dir = '../NormalAnimals/'
 normal_animal_list = os.listdir(norm_dir)[2:-1]
 EndBaseline = [18081.77015, 14387.14405, 17091.46195, 21465.20400, 28360.64150, 22006.09015]
 label = np.repeat('N', 6)
@@ -33,6 +33,7 @@ animal_entropy_non_event_rate = []
 animal_entropy_event_std = []
 animal_entropy_non_event_std = []
 
+#Based on optimal thresholds from bootstrapping
 animal_exceedance = [9, 9, 75, 9,  9, 9]
 animal_threshold = [60, 90, 90, 90, 90, 90]
 for normal_animal, baseline, animal_label, ex, th in zip(normal_animal_list, EndBaseline, \
