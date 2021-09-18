@@ -20,7 +20,7 @@ import seaborn as sns
 from statannot import add_stat_annotation
 
 
-HF_dir = '/media/dal/AWS/HeartFailureAnimals/'
+HF_dir = '../HeartFailureAnimals/'
 HF_animal_list = os.listdir(HF_dir)[1:-4]
 EndBaseline = [15157.47730, '', 13782.64500, 14479.24235, 15010.85545, 20138.13390, '', '', '', 19488.27205, 19001.37350, \
                16823.12835, '']
