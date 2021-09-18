@@ -32,12 +32,12 @@ pig1741	0p9	90
 pig1742	0p9	90
 """
 filepaths_Normal = [                                         
-                    'C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/NormalAnimals/pig1720/SpikerateCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
-                    'C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/NormalAnimals/pig1721/SpikerateCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
-                    'C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/NormalAnimals/pig1723/SpikerateCoact_output_1min_20minbuff_0p75/coactivity_stats.csv',\
-                    'C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/NormalAnimals/pig1740/SpikerateCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
-                    'C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/NormalAnimals/pig1741/SpikerateCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
-                    'C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/NormalAnimals/pig1742/SpikerateCoact_output_1min_20minbuff_0p9/coactivity_stats.csv']
+                    '../NormalAnimals/pig1720/SpikerateCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
+                    '../NormalAnimals/pig1721/SpikerateCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
+                    '../NormalAnimals/pig1723/SpikerateCoact_output_1min_20minbuff_0p75/coactivity_stats.csv',\
+                    '../NormalAnimals/pig1740/SpikerateCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
+                    '../NormalAnimals/pig1741/SpikerateCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
+                    '../NormalAnimals/pig1742/SpikerateCoact_output_1min_20minbuff_0p9/coactivity_stats.csv']
     
 state_thresholds_Normal = [60,90,90,90,90,90]  
 
@@ -61,21 +61,21 @@ pig1841pvc	0p9	90
 pig1843pvc	0p9	90
 pig1844	0p9	90
 """    
-filepaths_HF = ['C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/HeartFailureAnimals/pig1666/SpikerateCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
-                'C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/HeartFailureAnimals/pig1670/SpikerateCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
-                'C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/HeartFailureAnimals/pig1690pvccmrtx/SpikerateCoact_output_1min_20minbuff_0p75/coactivity_stats.csv',\
-                'C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/HeartFailureAnimals/pig1692chronicPVCRTX/SpikerateCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
-                'C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/HeartFailureAnimals/pig1767pvc/SpikerateCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
-                'C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/HeartFailureAnimals/pig1768/SpikerateCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
-                'C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/HeartFailureAnimals/pig1770/SpikerateCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
-                'C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/HeartFailureAnimals/pig1774pvc/SpikerateCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
-                'C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/HeartFailureAnimals/pig1841pvc/SpikerateCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
-                'C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/HeartFailureAnimals/pig1843pvc/SpikerateCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
-                'C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/HeartFailureAnimals/pig1844/SpikerateCoact_output_1min_20minbuff_0p9/coactivity_stats.csv']    
+filepaths_HF = ['../HeartFailureAnimals/pig1666/SpikerateCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
+                '../HeartFailureAnimals/pig1670/SpikerateCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
+                '../HeartFailureAnimals/pig1690pvccmrtx/SpikerateCoact_output_1min_20minbuff_0p75/coactivity_stats.csv',\
+                '../HeartFailureAnimals/pig1692chronicPVCRTX/SpikerateCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
+                '../HeartFailureAnimals/pig1767pvc/SpikerateCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
+                '../HeartFailureAnimals/pig1768/SpikerateCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
+                '../HeartFailureAnimals/pig1770/SpikerateCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
+                '../HeartFailureAnimals/pig1774pvc/SpikerateCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
+                '../HeartFailureAnimals/pig1841pvc/SpikerateCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
+                '../HeartFailureAnimals/pig1843pvc/SpikerateCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
+                '../HeartFailureAnimals/pig1844/SpikerateCoact_output_1min_20minbuff_0p9/coactivity_stats.csv']    
 
 state_thresholds_HF = [70,90,90,90,90,90,90,90,90,90,90] 
 
-HF_path = 'C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/HeartFailureAnimals/'
+HF_path = '../Data/HeartFailureAnimals/'
 filenames_HF = os.listdir(HF_path)
 filenames_HF = [f for f in filenames_HF if (f.startswith("pig"))]
 print(filenames_HF) 
@@ -98,12 +98,12 @@ pig1742	0p9	90
 
 """
 filepaths_Normal = [                                         
-                    'C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/NormalAnimals/pig1720/SpikestdCoact_output_1min_20minbuff_0p75/coactivity_stats.csv',\
-                    'C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/NormalAnimals/pig1721/SpikestdCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
-                    'C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/NormalAnimals/pig1723/SpikestdCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
-                    'C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/NormalAnimals/pig1740/SpikestdCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
-                    'C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/NormalAnimals/pig1741/SpikestdCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
-                    'C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/NormalAnimals/pig1742/SpikestdCoact_output_1min_20minbuff_0p9/coactivity_stats.csv']
+                    '../NormalAnimals/pig1720/SpikestdCoact_output_1min_20minbuff_0p75/coactivity_stats.csv',\
+                    '../NormalAnimals/pig1721/SpikestdCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
+                    '../NormalAnimals/pig1723/SpikestdCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
+                    '../NormalAnimals/pig1740/SpikestdCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
+                    '../NormalAnimals/pig1741/SpikestdCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
+                    '../NormalAnimals/pig1742/SpikestdCoact_output_1min_20minbuff_0p9/coactivity_stats.csv']
     
 state_thresholds_Normal = [70,90,70,90,90,90]  
 
@@ -128,21 +128,21 @@ pig1843pvc	0p9	90
 pig1844	0p9	90
 
 """    
-filepaths_HF = ['C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/HeartFailureAnimals/pig1666/SpikestdCoact_output_1min_20minbuff_0p75/coactivity_stats.csv',\
-                'C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/HeartFailureAnimals/pig1670/SpikestdCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
-                'C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/HeartFailureAnimals/pig1690pvccmrtx/SpikestdCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
-                'C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/HeartFailureAnimals/pig1692chronicPVCRTX/SpikestdCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
-                'C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/HeartFailureAnimals/pig1767pvc/SpikestdCoact_output_1min_20minbuff_0p6/coactivity_stats.csv',\
-                'C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/HeartFailureAnimals/pig1768/SpikestdCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
-                'C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/HeartFailureAnimals/pig1770/SpikestdCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
-                'C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/HeartFailureAnimals/pig1774pvc/SpikestdCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
-                'C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/HeartFailureAnimals/pig1841pvc/SpikestdCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
-                'C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/HeartFailureAnimals/pig1843pvc/SpikestdCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
-                'C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/HeartFailureAnimals/pig1844/SpikestdCoact_output_1min_20minbuff_0p9/coactivity_stats.csv']    
+filepaths_HF = ['../HeartFailureAnimals/pig1666/SpikestdCoact_output_1min_20minbuff_0p75/coactivity_stats.csv',\
+                '../HeartFailureAnimals/pig1670/SpikestdCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
+                '../HeartFailureAnimals/pig1690pvccmrtx/SpikestdCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
+                '../HeartFailureAnimals/pig1692chronicPVCRTX/SpikestdCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
+                '../HeartFailureAnimals/pig1767pvc/SpikestdCoact_output_1min_20minbuff_0p6/coactivity_stats.csv',\
+                '../HeartFailureAnimals/pig1768/SpikestdCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
+                '../HeartFailureAnimals/pig1770/SpikestdCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
+                '../HeartFailureAnimals/pig1774pvc/SpikestdCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
+                '../HeartFailureAnimals/pig1841pvc/SpikestdCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
+                '../HeartFailureAnimals/pig1843pvc/SpikestdCoact_output_1min_20minbuff_0p9/coactivity_stats.csv',\
+                '../HeartFailureAnimals/pig1844/SpikestdCoact_output_1min_20minbuff_0p9/coactivity_stats.csv']    
 
 state_thresholds_HF = [90,90,40,90,90,90,90,90,90,90,90] 
 
-HF_path = 'C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/HeartFailureAnimals/'
+HF_path = '../HeartFailureAnimals/'
 filenames_HF = os.listdir(HF_path)
 filenames_HF = [f for f in filenames_HF if (f.startswith("pig"))]
 print(filenames_HF) 
