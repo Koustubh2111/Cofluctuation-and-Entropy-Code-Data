@@ -98,10 +98,9 @@ for animal in animal_names:
         
     
 
-# In[ ]: HF animals: 1666, 1670, 1690,  1692, 1767, 1774, 1841, 1843
+# In[ ]: 
     
 root_dir = '../HeartFailureAnimals'
-# animals_entropy = [1666, 1767, 1769, 1774, 1841, 1843, 1670, 1692, 1690]
 animal_names = os.listdir(root_dir) #HFs
 
 HF_mean_entropy = []
@@ -117,7 +116,7 @@ entropy_filename = 'HFs_entropy_mean.csv'
 
 for animal in animal_names:
     
-    if animal == "pig1770" or animal == "pig1844" or animal == "pig1768":
+    if animal == "H7" or animal == "H11" or animal == "H9":
         print('passed this: ', animal)
         continue
     else:
@@ -163,7 +162,7 @@ for animal in animal_names:
         HF_animal_mean.append(np.mean(channel_mean))
         HF_animal_std.append(np.mean(channel_std))    
         
-# In[ ]: all entropies are collated in  C:\Users\ngurel\Documents\Stellate_Recording_Files\Data\junk entropy_all.csv      
+# In[ ]:       
 from statsmodels.stats.anova import AnovaRM
 
 entropy_file = './entropy_all.csv'
@@ -171,15 +170,3 @@ entropy_file = './entropy_all.csv'
 df_entropy = pd.read_csv(entropy_file)
 
 print(AnovaRM(data=df_entropy, depvar='entropy_mean', subject='animal', within=['animal_type'], aggregate_func='mean').fit())
-
-
-
-
-
-
-
-
-
-
-
-
