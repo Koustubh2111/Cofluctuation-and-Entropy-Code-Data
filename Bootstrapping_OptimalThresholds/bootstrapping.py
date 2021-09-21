@@ -1,9 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sun Jul 18 18:18:50 2021
-
-@author: NGurel
-
 bootstrapping based on event  rate on one animal
 
 num_bs_replicates=50000 takes too much time, I did 1000 instead.
@@ -12,43 +8,47 @@ Results with narrowest CIs: (space: 60%,75%,90% exceedance, 40-90 state threshol
 
 CASE: SpikerateCoact			
 animal	min of exceedance & state threshold combination	winner exceedance	winner state_threshold
-pig1666	0p9	70
-pig1670	0p9	90
-pig1690pvccmrtx	0p75	90
-pig1692chronicPVCRTX	0p9	90
-pig1767pvc	0p9	90
-pig1768	0p9	90
-pig1770	0p9	90
-pig1774pvc	0p9	90
-pig1841pvc	0p9	90
-pig1843pvc	0p9	90
-pig1844	0p9	90
-pig1720	0p9	60
-pig1721	0p9	90
-pig1723	0p9	80
-pig1740	0p9	90
-pig1741	0p9	90
-pig1742	0p9	90
+H1	0p9	70
+H2	0p9	90
+H3	0p75	90
+H4	0p9	90
+H5	0p9	90
+H6	0p9	90
+H7	0p9	90
+H8	0p9	90
+H9	0p9	90
+H10	0p9	90
+H11	0p9	90
+
+
+N1	0p9	60
+N2	0p9	90
+N3	0p9	80
+N4	0p9	90
+N5	0p9	90
+N6  0p9	90
 
 CASE: SpikestdCoact			
 animal	min of exceedance & state threshold combination	winner exceedance	winner state_threshold
-pig1666	0p9	90
-pig1670	0p9	90
-pig1690pvccmrtx	0p9	90
-pig1692chronicPVCRTX	0p9	90
-pig1767pvc	0p9	60
-pig1768	0p9	90
-pig1770	0p9	90
-pig1774pvc	0p9	90
-pig1841pvc	0p9	90
-pig1843pvc	0p9	90
-pig1844	0p9	90
-pig1720	0p9	90
-pig1721	0p9	90
-pig1723	0p9	90
-pig1740	0p9	90
-pig1741	0p9	90
-pig1742	0p9	90
+H1	0p9	90
+H2	0p9	90
+H3	0p9	90
+H4	0p9	90
+H5	0p9	60
+H6	0p9	90
+H7	0p9	90
+H8	0p9	90
+H9	0p9	90
+H10	0p9	90
+H11	0p9	90
+
+
+N1	0p9	90
+N2	0p9	90
+N3	0p9	90
+N4	0p9	90
+N5	0p9	90
+N6	0p9	90
     
 
 """
@@ -101,9 +101,8 @@ def draw_bs_replicates(denom,time,stats,size):
         
     return bs_replicates
 
-
 # In[ ]: EXAMPLE ONE ANIMAL
-df = pd.read_csv('C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/HeartFailureAnimals/pig1844/SpikerateCoact_output_1min_20minbuff_0p6/coactivity_stats.csv')
+df = pd.read_csv('../HeartFailureAnimals/H10/SpikerateCoact_output_1min_20minbuff_0p6/coactivity_stats.csv')
 time = df['time']
 stats = df['coactivity_stat']
 
@@ -178,12 +177,12 @@ lw_EndBaseline = 3
 
 # In[ ]: Data: HF Animals
 
-HF_path = 'C:/Users/ngurel/Documents/Stellate_Recording_Files/Data/HeartFailureAnimals/'
+HF_path = '../HeartFailureAnimals/'
 filenames = os.listdir(HF_path)
-filenames = [f for f in filenames if (f.startswith("pig"))]
+filenames = [f for f in filenames if (f.startswith("H"))]
 
 print(filenames)
-# ['pig1666', 'pig1670', 'pig1690pvccmrtx', 'pig1692chronicPVCRTX', 'pig1767pvc', 'pig1768', 'pig1770', 'pig1774pvc', 'pig1841pvc', 'pig1843pvc', 'pig1844']
+# ['H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'H7', 'H8', 'H9', 'H10', 'H11']
 
 # In[ ]: SpikerateCoact_output_1min_20minbuff_0p6 : EACH In[] AFTER THIS ONE IS REPEAT 
 
@@ -192,7 +191,7 @@ animals = list()
 coactivity_stats_filepaths = list()
 state_timestamp_HF = []
 bsstats_all = list()
-split_char_animal="pig"
+split_char_animal="H"
 num_bs_replicates=1000 #Change to 50000
 
 # fig, ax_HF = plt.subplots(figsize = (22,12), nrows = len(filenames), ncols = 1)
@@ -1814,49 +1813,4 @@ df_bsstats=df_bsstats.reindex(columns=column_titles)
 str_csv = "bsstats_Normal_SpikestdCoact_output_1min_20minbuff_0p9" + "_Thr" +  str(threshold) + "_BS" + str(num_bs_replicates) + "EvRate_base.csv"                                              
 
 # save csv
-df_bsstats.to_csv(str_csv, index=False) 
-
-# In[ ]: Plot obtained results from real data
-    
-"""
-CASE: SpikerateCoact			
-animal	min of exceedance & state threshold combination	winner exceedance	winner state_threshold
-pig1666	0p9	70
-pig1670	0p9	90
-pig1690pvccmrtx	0p75	90
-pig1692chronicPVCRTX	0p9	90
-pig1767pvc	0p9	90
-pig1768	0p9	90
-pig1770	0p9	90
-pig1774pvc	0p9	90
-pig1841pvc	0p9	90
-pig1843pvc	0p9	90
-pig1844	0p9	90
-pig1720	0p9	60
-pig1721	0p9	90
-pig1723	0p9	80
-pig1740	0p9	90
-pig1741	0p9	90
-pig1742	0p9	90
-
-CASE: SpikestdCoact			
-animal	min of exceedance & state threshold combination	winner exceedance	winner state_threshold
-pig1666	0p9	90
-pig1670	0p9	90
-pig1690pvccmrtx	0p9	90
-pig1692chronicPVCRTX	0p9	90
-pig1767pvc	0p9	60
-pig1768	0p9	90
-pig1770	0p9	90
-pig1774pvc	0p9	90
-pig1841pvc	0p9	90
-pig1843pvc	0p9	90
-pig1844	0p9	90
-pig1720	0p9	90
-pig1721	0p9	90
-pig1723	0p9	90
-pig1740	0p9	90
-pig1741	0p9	90
-pig1742	0p9	90
-        
-"""
+df_bsstats.to_csv(str_csv, index=False)     
