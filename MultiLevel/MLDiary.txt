@@ -1,0 +1,17 @@
+../Animals/Animal_Data/Animal1/NeuralFiles/ 
+ ../Animals/Animal_Data/Animal1/ML1_Output 
+
+
+
+Running through all the channels (.mat) files
+../Animals/Animal_Data/Animal1/ML1_Output Done: Time taken:
+4.68
+../Animals/Animal_Data/Animal2/NeuralFiles/ 
+ ../Animals/Animal_data/Animal2/ML1_Output 
+
+
+
+Running through all the channels (.mat) files
+../Animals/Animal_data/Animal2/ML1_Output Done: Time taken:
+5.64
+10.3 for 4 channels to be run
