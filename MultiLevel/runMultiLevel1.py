@@ -67,7 +67,7 @@ if __name__ == '__main__':
     
     os.nice(10)
     #List of directories containing the spike data for all channels for TWO animals as an example 
-    dmf = ['../HeartFailureAnimals/pig1666/NeuralFiles/',\
+    dmf = ['../Animals/Neural_Files/An',\
            '../HeartFailureAnimals/pig1767/NeuralFiles/']
             
     #List of output directories for the two animals to store the results    
