@@ -1,22 +1,5 @@
 #!/usr/bin/env python
 # coding: utf-8
-"""
-Created on Thu Nov 12 14:11:45 2020
-
-@author: akaravos
-"""
-
-
-# -*- coding: utf-8 -*-
-"""
-@author: Alex Karavos
-
-
-
-
-"""
-#!/usr/bin/env python
-# coding: utf-8
 
 # In[2]:
 import os
@@ -83,45 +66,19 @@ def runChannelML1(matfile = '',outputspikefile='',metadatafile = '',diaryfile = 
 if __name__ == '__main__':
     
     os.nice(10)
-    # In[1]:
-    #Directory of input files
-    
-    
-    dmf = ['/media/dal/AWS/HeartFailureAnimals/pig854/NeuralFiles/',\
-           '/media/dal/AWS/HeartFailureAnimals/pig855/NeuralFiles/',\
-           '/media/dal/AWS/HeartFailureAnimals/pig856/NeuralFiles/',\
-           '/media/dal/AWS/HeartFailureAnimals/pig902/NeuralFiles/',\
-           '/media/dal/AWS/HeartFailureAnimals/pig1666/NeuralFiles/',\
-           '/media/dal/AWS/HeartFailureAnimals/pig1669/NeuralFiles/',\
-           '/media/dal/AWS/HeartFailureAnimals/pig1669_pvc_no2/NeuralFiles/',\
-           '/media/dal/AWS/HeartFailureAnimals/pig1690pvccmrtx/NeuralFiles/',\
-           '/media/dal/AWS/HeartFailureAnimals/pig1767pvc/NeuralFiles/',\
-           '/media/dal/AWS/HeartFailureAnimals/pig1769pvc1/NeuralFiles/',\
-           '/media/dal/AWS/HeartFailureAnimals/pig1769pvc2/NeuralFiles/', \
-           '/media/dal/AWS/HeartFailureAnimals/pig1774pvc/NeuralFiles/', \
-           '/media/dal/AWS/HeartFailureAnimals/pig1841pvc/NeuralFiles/', \
-           '/media/dal/AWS/HeartFailureAnimals/pig1843pvc/NeuralFiles/']
-        
-    odm = ['/media/dal/AWS/HeartFailureAnimals/pig854/ML1_Output',\
-           '/media/dal/AWS/HeartFailureAnimals/pig855/ML1_Output',\
-           '/media/dal/AWS/HeartFailureAnimals/pig856/ML1_Output',\
-           '/media/dal/AWS/HeartFailureAnimals/pig902/ML1_Output',\
-           '/media/dal/AWS/HeartFailureAnimals/pig1666/ML1_Output',\
-           '/media/dal/AWS/HeartFailureAnimals/pig1669/ML1_Output',\
-           '/media/dal/AWS/HeartFailureAnimals/pig1669_pvc_no2/ML1_Output',\
-           '/media/dal/AWS/HeartFailureAnimals/pig1690pvccmrtx/ML1_Output',\
-           '/media/dal/AWS/HeartFailureAnimals/pig1767pvc/ML1_Output',\
-           '/media/dal/AWS/HeartFailureAnimals/pig1769pvc1/ML1_Output',\
-           '/media/dal/AWS/HeartFailureAnimals/pig1769pvc2/ML1_Output', \
-           '/media/dal/AWS/HeartFailureAnimals/pig1774pvc/ML1_Output', \
-           '/media/dal/AWS/HeartFailureAnimals/pig1841pvc/ML1_Output', \
-           '/media/dal/AWS/HeartFailureAnimals/pig1843pvc/ML1_Output']
-    
+    #List of directories containing the spike data for all channels for TWO animals as an example 
+    dmf = ['../HeartFailureAnimals/pig1666/NeuralFiles/',\
+           '../HeartFailureAnimals/pig1767/NeuralFiles/']
+            
+    #List of output directories for the two animals to store the results    
+    odm = ['../HeartFailureAnimals/pig1666/ML1_Output',\
+           '../HeartFailureAnimals/pig1767/ML1_Output']    
             
 
     timep = time.time()
     
     n = 0
+    #Going through each animal
     for dir_mat_files,out_dir in zip(dmf,odm):
         print(dir_mat_files,'\n',out_dir,'\n\n\n')
 
@@ -135,11 +92,11 @@ if __name__ == '__main__':
             os.mkdir(out_dir)
             #print('Result Directory already existed, renamed as', out_dir)
         finally:
-            pass
-        
+            pass       
     
-        # In[4]
+
         # List of neural files
+        #Contains the spike data in .mat for all channels. Two channels for each animal is shown here
         neural_folder = sorted(os.listdir(dir_mat_files))
         # print(f'There are {len(neural_file_list)} listed')
          
