@@ -6,5 +6,5 @@ The /Animals/NeuralFiles drectory contains 4 .mat files
 2. A1_Channel1 and A1_Channel2 contains 2 minutes of spike recordings for two channels from Animal 2
 
 The 2 min recording of the data provided for Multilevel is given below <br/>
-![Alt text](./Example Plots/representative_2min_recording.png)
+![](./Example_Plots/representative_2min_recording.png)
 
