@@ -1,5 +1,5 @@
 channel number 
-ICN9
+1
  smoothing width  
 4 
  pad 
