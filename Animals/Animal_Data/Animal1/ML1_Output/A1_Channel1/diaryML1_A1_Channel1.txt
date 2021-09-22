@@ -1,0 +1,42 @@
+Warning: read_Matlab_data: hasLVP= False
+Warning: read_Matlab_data: hasRESP= False
+ level_plus =  9.47877102882703
+ level_minus =  8.530893925944326
+ CALL: getNewLevel: plus: number proposed  1084
+ CALL: getNewLevel: minus: number proposed  523
+ [level_plus, level_minus] =  1.6787710288270468 2.1308939259443407
+ ****************************
+ Getting Level Minus Spike 2.1308939259443407
+ ****************************
+ CALL: getSpikeLevel
+ 	 number of spike  523
+ CALL: getCleanedUp
+ CALL: getRingingCleanedUp
+ 	 after ringing cleaned up: number of spike  336
+ CALL: getRidOfIsland 
+ *********************************
+ ******MultiLevel1 COMPLETE**** 1
+ *********************************
+warning: getNewLevel: went below min_level  -2.0
+ CALL: getNewLevel: plus: number proposed  1300
+ CALL: getNewLevel: minus: number proposed  559
+ [level_plus, level_minus] =  -2.0 1.6308939259443402
+ ****************************
+ Getting Level Minus Spike 1.6308939259443402
+ ****************************
+ CALL: getSpikeLevel
+ 	 number of spike  895
+ CALL: getCleanedUp
+ CALL: getRingingCleanedUp
+ 	 after ringing cleaned up: number of spike  361
+ CALL: getRidOfIsland 
+ *********************************
+ ******MultiLevel1 COMPLETE**** 2
+ *********************************
+warning: getNewLevel: went below min_level  -2.0
+ CALL: getNewLevel: minus: number proposed  651
+ [level_plus, level_minus] =  -2.0 -2.0
+ *********************************
+ ******MultiLevel1 COMPLETE**** 3
+ *********************************
+ML1 Done
