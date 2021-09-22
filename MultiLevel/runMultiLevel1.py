@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[2]:
 import os
 from MultiLevel1MC import MultiLevel1
 import pandas as pd
@@ -9,8 +8,6 @@ import sys
 from multiprocessing import Process
 import time
 import multiprocessing
-
-
 
 # function made to run processes of ML1
 # takes in the names of the input matfile, and the output files
@@ -32,9 +29,7 @@ def runChannelML1(matfile = '',outputspikefile='',metadatafile = '',diaryfile = 
     defaultout = sys.stdout
     #Make a DiaryFile where all the printing will go
     diary = open(diaryfile,'w')
-    sys.stdout = diary
-    
-    
+    sys.stdout = diary  
 
     try:
         
@@ -59,20 +54,17 @@ def runChannelML1(matfile = '',outputspikefile='',metadatafile = '',diaryfile = 
 
     return
 
-
-
-# In[27]:
 #Required to run from cmd to us Process
 if __name__ == '__main__':
     
     os.nice(10)
     #List of directories containing the spike data for all channels for TWO animals as an example 
-    dmf = ['../Animals/Neural_Files/An',\
-           '../HeartFailureAnimals/pig1767/NeuralFiles/']
+    dmf = ['../Animals/Animal_Data/Animal1/NeuralFiles/',\
+           '../Animals/Animal_Data/Animal2/NeuralFiles/']
             
     #List of output directories for the two animals to store the results    
-    odm = ['../HeartFailureAnimals/pig1666/ML1_Output',\
-           '../HeartFailureAnimals/pig1767/ML1_Output']    
+    odm = ['../Animals/Animal_Data/Animal1/ML1_Output',\
+           '../Animals/Animal_data/Animal2/ML1_Output']    
             
 
     timep = time.time()
@@ -103,7 +95,7 @@ if __name__ == '__main__':
         # time counter started
     
         # List of all processes
-        
+        print('Running through all the channels (.mat) files')
         for neuralfile in neural_folder:
             
             n = n+1
@@ -120,7 +112,7 @@ if __name__ == '__main__':
             # This line needs to be set depending on the input file format 
             # example file name 'neural_icn17.mat'
             
-            ch = neuralfile[:-4] # would return pig1740_icn17
+            ch = neuralfile[:-4] # would return Ax_Channelx
      
             # !!!!!!!!!!!!!!!!! #
             # !!!!!!!!!!!!!!!!! #
