@@ -1,0 +1,36 @@
+
+smoothing_width
+4width_lower_bound 
+1.0
+width_upper_bound 
+35.0
+delta_prom (this is on the LOGARITHM) 
+0.1
+delta width 
+1.0
+default before_max_ratio_bound = 0.2 
+0.2
+default after_max_ratio_bound = 0.3 
+0.3
+default min_spike_in_bin = 10 
+10
+hasLVP 
+False
+hasRESP 
+False
+lvpsmooth_local_max_win 
+20
+lvpsmooth_local_min_win 
+10
+ neural_start 
+10999.999999999998
+ neural_interval 
+4.9999999999999996e-05
+ lvp_start 
+11000.000049999999
+ lvp_interval 
+0.001
+ resp_start 
+11000.00015
+ resp_interval 
+0.001

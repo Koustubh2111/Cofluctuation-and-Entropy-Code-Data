@@ -1,0 +1,158 @@
+Warning: read_Matlab_data: hasLVP= False
+Warning: read_Matlab_data: hasRESP= False
+*****neural_start*******  10999.999999999998
+Reading ML1 metadata
+channel number 
+
+ICN1
+
+ smoothing width  
+
+4 
+
+ pad 
+
+500 
+
+ level_plus_factor 
+
+0.8 
+
+ level_minus_factor 
+
+0.9 
+
+ delta_level 
+
+0.1 
+
+ min_level 
+
+1.5 
+
+ min_new_spike_plus 
+
+1000 
+
+ min_new_spike_minus 
+
+500 
+
+ left 
+
+20 
+
+ right 
+
+100 
+
+ ring_threshold 
+
+0.5 
+
+ ring_cutoff 
+
+0.5 
+
+ ring_second 
+
+0.06 
+
+ ring_num_period 
+
+5 
+
+ min peak distance: mpd 
+
+60 
+
+ mean_shift_n 
+
+5
+
+ neural_start 
+
+10999.999999999998
+
+ neural_interval 
+
+4.9999999999999996e-05
+
+ lvp_start 
+
+-9.0
+
+ lvp_interval 
+
+-9.0
+
+ resp_start 
+
+-9.0
+
+ resp_interval 
+
+-9.0
+smooth left right mean shift  4 20 100 5
+list plus minus  0 878
+ ***************************************************************
+ *********START UNCURATED SPIKE LIST ***************************
+ ***************************************************************
+CALL: getAllPromWidth 
+WARNING: getAllPromWidth: no spike
+	 have no spike 
+CALL: getAllPromWidth 
+	 have spike  878
+ **************************************************
+ CALL: getOutput Uncurated Spike                   
+ **************************************************
+neural/lvp/resp start  10999.999999999998 11000.000049999999 11000.00015
+start time  11000.00015
+neural/lvp/resp end  11119.007349999998 11120.000049999999 11120.00015
+end time  11119.007349999998
+ *************************************************************
+ *********START CURATED SPIKE LIST AND PROM WIDTH ************
+ *************************************************************
+CALL: getPromWidth 
+WARNING: getPromWidth: no spike
+	 have no spike 
+CALL: getPromWidth 
+	 have spike 167
+ ******************************************************
+ CALL: getOutput Curated Spike and Target                  
+ ******************************************************
+neural/lvp/resp start  10999.999999999998 11000.000049999999 11000.00015
+start time  11000.00015
+neural/lvp/resp end  11118.393049999999 11120.000049999999 11120.00015
+end time  11118.393049999999
+ ***************************************************
+ *********START SPIKE LIST AND TEMPLATE ************
+ ***************************************************
+
+CALL: getPromWidth 
+WARNING: getPromWidth: no spike
+	 spike for template has spike 1
+fewer than 10 spikes: no template
+CALL: getPromWidth 
+	 spike for template has spike 167
+CALL: getPromWidthBin
+min_width  12.0
+max_width  31.0
+maxlogprom 20.58099606195067, minlogprom 3.3947318333044123, deltaprom 0.1
+num prom/width  173 20
+CALL: getSpikeListCleanUp
+	 spikes for template:  167
+CALL: getTemplate
+ ******************************************************
+ CALL: getOutput SpikeForTemplate and Target           
+ ******************************************************
+neural/lvp/resp start  10999.999999999998 11000.000049999999 11000.00015
+start time  11000.00015
+neural/lvp/resp end  11118.393049999999 11120.000049999999 11120.00015
+end time  11118.393049999999
+ **********************************************
+ CALL: getOutput Bin Template Spike for GUI    
+ **********************************************
+ ***************************************************
+ *********SPIKE LIST AND TEMPLATE COMPLETE**********
+ ***************************************************
