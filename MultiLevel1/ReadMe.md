@@ -13,6 +13,6 @@ Three Output files are generated for a Animalx and Channely multilevel1 run
 2. metadataMultilevel1_Ax_Channelx - Contains the parameters used for the multilevel1 run
 3. outputSpike_Ax_Channelx - Contains the location and sign of the detected spikes.
 
-Final iteration of one of the channels is shown below with the detected spikes shown as colored dots
+Sequentail steps in MultiLevel1 are shown in Example_plots
 
-![](./Example_plots/one_iteration.png)
+
