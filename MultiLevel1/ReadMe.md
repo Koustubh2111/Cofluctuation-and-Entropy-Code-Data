@@ -14,4 +14,4 @@ Three Output files are generated for a Animalx and Channely multilevel1 run
 3. outputSpike_Ax_Channelx - Contains the location and sign of the detected spikes.
 
 Final iteration of one of the channels is shown below with the detected spikes shown as colored dots
-![one iteration](https://user-images.githubusercontent.com/36010817/134749560-de8aed95-f405-4790-9fca-5c8a3ef8a85f.png)
+![](./Example_plots/one iteration.png)
