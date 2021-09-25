@@ -102,19 +102,16 @@ if __name__ == "__main__":
     # Make sure directories DO NOT end in '/'
     # ANIMAL: example /media/dal/AWS/pigdata/pig1234/ml2_output and NO '/' at end
 
-    ml2_dirlist = ['/media/dal/AWS/April2019ML/0.8ML_1720',
-                   ]
+    ml2_dirlist = ['/Animal/ML2_Output']                   ]
 
     # ANIMAL: List the target files: CHOOSE ONE TARGET
     # lvp, resp, or ecg as resp
     targetfile_list = [
-                    '/media/dal/AWS/AnimalData/Stellate/Pig1720/pig1720_exported/TargetFiles/pig1720_lvp.mat',
-    ]
+                    'Animal/TargetFiles/Animal_lvp.mat']
 
     # ANIMAL: list the comment files
     commentfile_list = [
-                        '/media/dal/AWS/NormalAnimals/pig1720/CommentFiles/pig1720_comment_summary.csv'
-                        ]
+                        '/Animal/CommentFiles/Animal_comment_summary.csv']
 
     # lvp: bad target lower and upper limits  
     badtarlower_list = [
