@@ -97,8 +97,7 @@ Algorithm III : getCleanedUp::
 		return Region
 
 Following the spike clean up, the function **GetRingingClanedUp** is called.
-It aims to eliminate the spikes with a ringing effect in the spikes list curated by getCleanedUp. This function uses the parameters "RingSecond" which is the duration to look for ringing in seconds for each spike, "RingNumPeriod" which 
-The peaks (maxima) greater than RingCutoff in a duration of RingSecond after the Spike peak location is recorded using the DetectPeaks[reference git] function. The ringing metric is then calculated [Insert formula]
+It aims to eliminate the spikes with a ringing effect in the spikes list curated by getCleanedUp. This function uses the parameters "RingSecond" which is the duration to look for ringing in seconds for each spike, "RingNumPeriod" which indicated a period of ringing used as a threshold to eliminate ringing.The peaks (maxima) greater than RingCutoff in a duration of RingSecond after the Spike peak location is recorded using the DetectPeaks function. The ringing metric is then calculated. 
 The spikes that exceed a threshold set by the "RingCutOff" parameter for the ringing metric are eliminated and new list is curated for the next stage in the function.
 
 Algorithm IV : getRingingCleanedUp::
@@ -113,11 +112,11 @@ Algorithm IV : getRingingCleanedUp::
         	X (list): Spike recording of a channel in an experiment 
         	Location (list): list used to store spike amplitude in spike locations
 		Region(list): List of maksed regions represented by 1s
-                RingCutoff : 
-                RingSecond :
-                RingNumPeriod :
+                RingCutoff (float) : Threshold placed on ringing metric
+                RingSecond (float): duration of ringing
+                RingNumPeriod (float):period of ringing used as a threshold
                 Level (float): Amplitude level used to detect locations in recording
-                NeuralInterval : 
+                NeuralInterval (float) : delta time of the neural recordings.
              
     	Outputs:
                 Location (list) : Returns updated spike amplitides
@@ -135,7 +134,7 @@ Algorithm IV : getRingingCleanedUp::
 			MaxValueSet = MaxValueSet > RingCutoff
 			if  Len(MaxValueSet) > RingNumPeriod}:
 		
-				Ring = sum( (MaxValueSet) * MaxValueSet/Len(MaxValueSet) )
+				Ring = sum( (MaxValueSet) * MaxValueSet/Len(MaxValueSet) ) #RINGING METRIC
 				
 				if Ring > RingThreshold
 			
@@ -148,34 +147,30 @@ Algorithm IV : getRingingCleanedUp::
 	
 			if (mean(X[L : R]) > 0.75 * Xpeak) or (Xpeak - mean(X[L:R]) < 1)
 		
-				Location[N] = 0
-		
-	
-		
+				Location[N] = 0		
 		LocationList = Location == Level
+		return Location, Region, LocationList
 
-		
+Follwing the elimination of spikes after ringing, **getRidOfIsland** is called.This function is used for two purposes. It is used to widen small islands detected using the Region varaible and it is used to merge small islands or small masked regions separated by les than the spike width 		
 	
 Algorithm V : getRidOfIsland::
 
-	def getRidOfIsland(region, left, right):
+	def getRidOfIsland(region):
         '''
         getRidOfIsland returns an updated masking list after removing islands 
 
     	Args:
 		Region(list): List of maksed regions represented by 1s
-		left :
-		right :
-		
              
     	Outputs:
                 Region (list) : Returns the updated masking list
     	'''
-
+		#JOB 1: Widen small islands
 		SpikeWidth = 120
 		DetectIsland = Region[N + 1] - Region[N]
 		StartOf = DetectIsland > 0
 		EndOf = DetectIsland < 0
+		
 		
 		WidthOf = EndOf - StartOf
 		if Len(WidthOf < Spikewidth) > 0
@@ -185,7 +180,7 @@ Algorithm V : getRidOfIsland::
 					Region[Start - Widen] = 1
 			
 	
-		
+		#JOB 2 : Merge small islands 
 		DetectIsland = Region[N + 1] - Region[N]
 		StartOf = DetectIsland > 0
 		EndOf = DetectIsland < 0		
@@ -198,7 +193,4 @@ Algorithm V : getRidOfIsland::
 
 		return Region
 		
-			
-The five algorithms described above work sequentially in the function called **  
-
-
+The five functions are sequentially called in **AnalysisLevelgetSpike** after **getNewLevel** for either a larger plus or a minus level until a minmum level is reached. 
