@@ -17,7 +17,7 @@ The Neural Specificity Metric was develped to compare the degree to ehich stella
 Neural Specificity Algorithm : AttentionMetric::
 
 
-	def AttentionMetric(hardthreshold, level_plus, ....):
+	def AttentionMetric(*args):
 	
 	'''
         Attention metric calulates the neural specificity of a target, plots the neural specificity and dumps
@@ -25,10 +25,10 @@ Neural Specificity Algorithm : AttentionMetric::
 
 	args:
 		hardthreshold (float): Threshold used for the metric [0,1]
-		level_plus (float) : 
-		level_minus (float) :
 		window (float) : Window size  
                 num_bin(int) : Number of bins of each window 
+		uncurated (bool) = True - Uncurated.csv is used for metric
+		hasLVP (bool) = True - LVP is the target		
 
 	outputs : Plots the metric and dumps the entropy 		
 	''' 
@@ -66,15 +66,13 @@ Neural Specificity Algorithm : AttentionMetric::
 		RelDiff = (X - Y)/ max(X, Y) for [X, Y] in [SmoothPlusHist, SmoothMinusHist] 
 		
 		#Between number of spikes for plus and minus between, take the difference
-		[MinInd, MinValues] = DetectPeaks(RelDiff ?????)
+		[MinInd, MinValues] = DetectPeaks(RelDiff) # small peaks
 		
-		#Get the least differences and take the least
-		#Isolate the bin edge i.e. level that is close to 1.5
+
 		#min Ind  - Index of rel diff equal to length of plus and minus hist for levels 0-5 - all the levels that have small differemces, close to noise floor
 		#bin_edge[min_ind] selects the levels that have the smallest differences
 		#  abs(bin_edge[min_ind] - 1.5) - from the levels that have the smallest diffrences, isolating the index of the one closest to 1.5
-		#Between 2 and suggested level, choose minimum AND max between level suggested/2 to 1.25 - between 1.25 ad 2.0
-		
+		#Between 2 and suggested level, choose minimum AND max between level suggested/2 to 1.25 - between 1.25 ad 2.0	
 		
 		#Finally, we choose 
 		LevelValueSuggested = BinEdges[MinInd[argmin(BinEdges[MinInd - 1.5])]]
@@ -139,4 +137,7 @@ Neural Specificity Algorithm : AttentionMetric::
 		AttentionSample = AttentionSample / std(AttentionSample)
 		 
 		PlotResults(Attention, AttentionRandom, AttentionSample,  HardThreshold
+		
+		diffAttention = FirstDifference(Attention)
+		getEntropy(Attention) - Calculates base 3 Shannon entropy of change in entropy and dumps the .csv file. 
 	}
