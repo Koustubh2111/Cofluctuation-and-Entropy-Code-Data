@@ -1,6 +1,6 @@
 ## Data availability
 
-The data required for running Neural Speicicity are large in size and hence are stored in the bwlow link
+The data required for running Neural Specificity are large in size and hence are stored in the bwlow link
 
 https://drive.google.com/drive/folders/176cKPGAdYUrazWG_6fsdUt23J4S_UdqY?usp=sharing
 
