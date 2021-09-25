@@ -3,13 +3,13 @@ MultiLevel2 - Spike Curation
 
 MultiLevel2 (ML2) is the next job in the pipeline after MultiLevel1 (ML1). It used the metadata and output spike outputs from ML1 to generated another metadata file and other spike information files. Although ML2 is built to generate different kinds of spike information including a list of curated, uncurated and spikes for template matching information, this documentation will focus on the uncurated spike information. 
 
-Writing Uncurated csv algorithm : Write_MultiLevel2()::
+Writing Uncurated csv algorithm : Write_MultiLevel2::
 	
 	def Write_MultiLevel2(*args):
 	
 	'''
 	Writes all the spike information into a csv called Uncurated.csv
-
+	
 	'''
 
 	if spike_plus[0] > 0 and spike_minus[0] > 0:
@@ -84,7 +84,18 @@ ML2 Algorithm : AnalysisLevelUncurated::
 Prominence and Width Algorithm : getAllPromWidth::
 
 	def getAllPromWidth():
-
+	'''
+	Returns prominence and width of spikes
+	
+	args:
+		X(list) - spike recording
+		LocationList (list) - List of spike locations
+		mean_shift_n - Used for mean shifting after extracting 6ms spike
+		
+	outputs:
+		Prom, Width, LocationList
+	
+	'''
 
 		SpikeWidth = 120
 		for N in LocationList
