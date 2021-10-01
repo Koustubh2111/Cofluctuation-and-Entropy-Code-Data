@@ -29,5 +29,6 @@ Detailed Documentation and Pseudocode have been provided in
 ./cofluctuations_event_generation.rst
 ```
 
-
+The ouput for coactivity and cofluctuation for the surrogate data used is plotted as
+![](../Animals/Example_Plots/coact__cof_matrix.png)
 
