@@ -96,7 +96,7 @@ def plot_results(
 ):
     
     # strip nan
-    auto_corr=np.nan_to_num(auto_corr, nan=0.0, posinf=0.0, neginf=0.0)
+    auto_corr=np.nan_to_num(auto_corr, posinf=0.0, neginf=0.0)
     # attention metric: RELATIVE: DOUBLE sided hard threshold
 
     # set hard threshold

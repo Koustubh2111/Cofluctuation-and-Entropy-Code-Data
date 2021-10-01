@@ -1,0 +1,14 @@
+performing  rate
+outdir  ../CoactivityCofluctuationEventRate/Animal_Data/SpikerateCoact_output_10s_6minbuff_corr_thr_0p9
+ytick_precision  0
+ytick_downsample  2
+running spikerate coact
+animal_name:  Animal
+filepaths:  0 ../CoactivityCofluctuationEventRate/Animal_Data/NeuralOutSpike/Animal_Channel1/outputSpike_uniform_time_rate_Animal_Channel1.csv
+filepaths:  1 ../CoactivityCofluctuationEventRate/Animal_Data/NeuralOutSpike/Animal_Channel2/outputSpike_uniform_time_rate_Animal_Channel2.csv
+filepaths:  2 ../CoactivityCofluctuationEventRate/Animal_Data/NeuralOutSpike/Animal_Channel3/outputSpike_uniform_time_rate_Animal_Channel3.csv
+filepaths:  3 ../CoactivityCofluctuationEventRate/Animal_Data/NeuralOutSpike/Animal_Channel5/outputSpike_uniform_time_rate_Animal_Channel5.csv
+channel numbers:  [1 2 3 5]
+No Comment File
+No Comment File
+Corrupt comment_df 

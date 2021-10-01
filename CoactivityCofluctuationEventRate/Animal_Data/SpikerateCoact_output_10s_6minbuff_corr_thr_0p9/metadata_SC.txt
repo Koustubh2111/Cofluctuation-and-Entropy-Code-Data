@@ -1,0 +1,22 @@
+task being performed 
+rate
+ animal_name 
+Animal
+ window 
+2505
+ ytick_precision 
+0
+ ytick_downsample 
+2
+ before buffer 
+360.0
+ after buffer 
+360.0
+ filepaths 
+../CoactivityCofluctuationEventRate/Animal_Data/NeuralOutSpike/Animal_Channel1/outputSpike_uniform_time_rate_Animal_Channel1.csv
+../CoactivityCofluctuationEventRate/Animal_Data/NeuralOutSpike/Animal_Channel2/outputSpike_uniform_time_rate_Animal_Channel2.csv
+../CoactivityCofluctuationEventRate/Animal_Data/NeuralOutSpike/Animal_Channel3/outputSpike_uniform_time_rate_Animal_Channel3.csv
+../CoactivityCofluctuationEventRate/Animal_Data/NeuralOutSpike/Animal_Channel5/outputSpike_uniform_time_rate_Animal_Channel5.csv
+1 2 3 5 1 2 3 5 
+ name is 
+rateCorrupt comment_df 

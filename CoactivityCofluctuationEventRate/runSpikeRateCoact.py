@@ -27,6 +27,7 @@ def getFilepaths(NA_SpikeRateoutputs):
 # run SpikeRateCoactivityMC.SpikeRateCoact
 def runSRCoact(
    animal_name,
+   diary_file,
    filepaths,
    chList,
    ch_numbers,
@@ -43,7 +44,7 @@ def runSRCoact(
    ylim_max
 ):
     
-    os.nice(10)
+    #os.nice(10)
     # save default printing settings
     # write process to diary file
     default_output = sys.stdout
@@ -93,7 +94,7 @@ if __name__ == "__main__":
     # global coactivity parameters
     # set window: centered: odd length: time = window * dt (see SpikeRateCoactivityMC.py)
     # default is dt = 0.02 (1 min = 3001, 15 min = 45000)
-    window = 3001 * 5
+    window = 501 * 5
     # plot parameter
     ytick_downsample=2
     # plot parameter
@@ -106,23 +107,23 @@ if __name__ == "__main__":
 
 
     # set before event buffer (secs) ... use 300.0 for 1min window above
-    before_buffer = 1200.0
+    before_buffer = 360.0
     # set after event buffer (secs)
-    after_buffer = 1200.0
+    after_buffer = 360.0
 
     #
     # DO NOT FORGET TO SET THE CHANNEL SPLIT LETTER
     # set primary channel split letter
-    split_primary = 'n'
+    split_primary = 'n' #JOB - Fix dependecy on specific filenames 
     split_backup = 'g'
     
     #
     # set directory to special case if needed or special_case=''
-    special_case = '_1min_20minbuff_corr_thr_0p9'
+    special_case = '_10s_6minbuff_corr_thr_0p9'
     
     #
     # corr_threshold for coactivity_stats
-    corr_threshold = 0.9
+    corr_threshold = 0.6
     
     #
     # coactivity_stats y limits:  percentage var
@@ -139,14 +140,14 @@ if __name__ == "__main__":
 
     # Make sure directories DO NOT end in '/'
     # ANIMAL: example /media/dal/AWS/pigdata/pig1234/ml2_output and NO '/' at end
-    NA_dirlist = ["/media/dal/AWS/HeartFailureAnimals/pig1767pvc/NeuralAutocorrSingle_Output"]
+    NA_dirlist = ["../CoactivityCofluctuationEventRate/Animal_Data/NeuralOutSpike"] #Directry containing  channel folders having outspikedata
     
     # ANIMAL: list the comment files
-    commentfile_list = ['/media/dal/AWS/HeartFailureAnimals/pig1767pvc/CommentFiles/pig1767pvc_comment_summary.csv']
+    commentfile_list = ['../CoactivityCofluctuationEventRate/Animal_Data/CommentFiles']
 
     # ANIMAL: ch_numbers: physically ordered list
     #ch_numbers = np.array([9, 10, 11, 12, 13, 14, 15, 16, 1, 2, 3, 4, 5, 6, 7, 8]).astype(int)
-    ch_numbers = np.array([15, 4, 5, 6]).astype(int)
+    ch_numbers = np.array([1, 2, 3, 5]).astype(int)
 
 
     # let filenames completely print
@@ -156,7 +157,7 @@ if __name__ == "__main__":
     for NA_outputdir, comment_file in zip(NA_dirlist, commentfile_list):
         
         # ANIMAL name
-        animal_name = NA_outputdir.split('Animals/')[1].split('/')[0]
+        animal_name = 'Animal' #NA_outputdir.split('Animals/')[1].split('/')[0]
            
         # make comment file dataframe
         try:
@@ -172,7 +173,7 @@ if __name__ == "__main__":
         f = NA_outputdir.split("/")[-1:][0]
         print(f)
         # replace NeuralAutocorrSingle_Output with SpikRateCoact_Output
-        outputfolder = NA_outputdir.replace(f, "Spike"+name+"Coact_outputBUILD"+special_case)
+        outputfolder = NA_outputdir.replace(f, "Spike"+name+"Coact_output"+special_case)
         print(outputfolder)
         try:
             outdir = outputfolder
@@ -189,15 +190,18 @@ if __name__ == "__main__":
         chList = np.array([]).astype(int)
         for ch in os.listdir(NA_outputdir):
             try:
-                chList = np.append(chList, int(ch.split(split_primary)[-1]))
+                chList = np.append(chList, int(ch.split('_')[-1][-1]))
             except:
-                chList = np.append(chList, int(ch.split(split_backup)[-1]))
-
+                print('Exception thrown : channel number not found')
+                #chList = np.append(chList, int(ch.split(split_backup)[-1]))
+        print('Channel list', chList)
         # get all available channel Filepaths of SpikeRate
         filepaths = getFilepaths(NA_outputdir + "/")
+        print('File paths', filepaths)
 
         # output file for SpikeRateCoact diary
-        diary_file = outputfolder + "/diarySpike"+name+"Coact.txt"
+        diary_file = outputfolder + "/diarySpike" +name + "Coact.txt"
+        print('diary_file', diary_file)
 
 
         # ANIMAL: SpikeRateCoact compute across events for an ANIMAL
@@ -205,6 +209,7 @@ if __name__ == "__main__":
             target=runSRCoact,
             args=[
                     animal_name,
+                    diary_file,
                     filepaths,
                     chList,
                     ch_numbers,
