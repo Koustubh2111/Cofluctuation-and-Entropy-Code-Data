@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Wed Jul  7 07:02:47 2021
-
 @author: koustubh
 """
 final_dataset = []
