@@ -1,0 +1,38 @@
+outdir  ../Animals/Animal_Data/Animal1/NeuralSpecificity_20s_6minbuff
+before_buffer  360.0
+after buffer  360.0
+event split primary letter  l
+event split backup letter  n
+filepaths:  0 ../Animals/Animal_Data/Animal1/ML2_Output/A1_Channel1/Uncurated_A1_Channel1.csv 1
+filepaths:  1 ../Animals/Animal_Data/Animal1/ML2_Output/A1_Channel2/Uncurated_A1_Channel2.csv -9
+channel list:  [1 2]
+Warning: Neural data not read: hasNeural= False
+Warning: read_Matlab_data: hasRESP= False
+select desired range
+remove artifact
+	 	 remove_artifact: n_channel: num art:  2 0
+	 	 number: before,  after  332 332
+remove bad target
+set time limits
+set [sliding] histogram parameters
+attention [sliding] histogram
+	 start index: end index: attention [sliding] histogram
+	 init attention [sliding] histogram
+	 find attention [sliding] histogram
+	 fill empty attention locations
+attention random [sliding] histogram
+	 start index: end index: attention_random [sliding] histogram
+	 init attention random [sliding] histogram
+0.0
+	 fill empty attention_random locations
+construct attention metric
+remove reference level, scale [mean=0,std=1], impose hard double-sided threshold
+	 attention
+	 attention sample
+	 attention random
+create graphics
+No Comment File
+No Comment File
+No Comment File
+
+ comment data frame corrupt 

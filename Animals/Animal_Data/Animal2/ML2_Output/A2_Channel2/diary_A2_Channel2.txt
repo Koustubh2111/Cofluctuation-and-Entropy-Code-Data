@@ -4,7 +4,7 @@ Warning: read_Matlab_data: hasRESP= False
 Reading ML1 metadata
 channel number 
 
-ICN2
+ICN6
 
  smoothing width  
 
@@ -94,7 +94,7 @@ ICN2
 
 -9.0
 smooth left right mean shift  4 20 100 5
-list plus minus  0 0
+list plus minus  0 66
  ***************************************************************
  *********START UNCURATED SPIKE LIST ***************************
  ***************************************************************
@@ -102,13 +102,14 @@ CALL: getAllPromWidth
 WARNING: getAllPromWidth: no spike
 	 have no spike 
 CALL: getAllPromWidth 
-WARNING: getAllPromWidth: no spike
-	 have no spike 
+	 have spike  66
  **************************************************
  CALL: getOutput Uncurated Spike                   
  **************************************************
-
- Exception: getOutputSpike: no spikes 
+neural/lvp/resp start  11999.999999999998 12000.000049999999 12000.00015
+start time  12000.00015
+neural/lvp/resp end  12119.896549999998 12120.000049999999 12120.00015
+end time  12119.896549999998
  *************************************************************
  *********START CURATED SPIKE LIST AND PROM WIDTH ************
  *************************************************************

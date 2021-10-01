@@ -1,0 +1,51 @@
+
+ hasLVP 
+True
+ hasRESP 
+False
+ uncurated 
+True
+ curated 
+False
+ template 
+Falselevel_plus 
+1.5
+ level_minus 
+1.5
+ hard_threshold 
+0.5
+ window 
+20.0
+ down 
+10
+ channel_name 
+A2_Channel2
+ num_art_compare 
+5
+ tar_start 
+12000.000049999999
+ tar_interval 
+0.001
+ neural_interval 
+5e-05
+ tar_upp_trans 
+0.1
+ tar_low_trans 
+0.1
+ x_lower_lim 
+12002.827049999998
+ badtar_upper_lim 
+inf
+ badtar_lower_lim 
+-inf
+ x_upper_lim 
+12116.586399999998
+ hard_threshold_rel_to_mean 
+False
+ att_metric 
+True
+ before buffer 
+360.0
+ after buffer 
+360.0
+ comment data frame corrupt 
