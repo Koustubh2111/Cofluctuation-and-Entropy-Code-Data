@@ -23,3 +23,11 @@ The outputs dumped in ./Animal_Data/SpikerateCoact_output_10s_6minbuff_corr_thr_
 
 
 
+Detailed Documentation and Pseudocode have been provided in 
+
+```{python}
+./cofluctuations_event_generation.rst
+```
+
+
+
