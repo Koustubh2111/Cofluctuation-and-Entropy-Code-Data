@@ -18,7 +18,7 @@ The outputs are available in \Animals\Animal_Data\Animalx\ML2_Output
 
 In order to run ML2 The folders Multilevel1, Multilevel2 and Animals must be downloaded. 
 
-Detailed Documentation and Code are provided in
+Detailed Documentation and Psuedocode are provided in
 ```{python}
 ./spike_curation.rst
 ```
