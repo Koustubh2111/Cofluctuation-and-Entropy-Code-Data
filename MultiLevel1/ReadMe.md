@@ -1,7 +1,11 @@
 # STEPS TO TEST MULTILEVEL 1
 
 ML1 must be run using the command
-        python runMultiLevel1.py > DiaryML1.txt
+
+```{python}
+cd ./MultiLevel1
+python runMultiLevel1.py > DiaryML1.txt
+```
         
 The runs MultiLevel 1 for 2 minute data of two channels of 2 animals. 
 A representative example for the 2min spikerecording is given below
@@ -13,6 +17,7 @@ Three Output files are generated for a Animalx and Channely multilevel1 run
 2. metadataMultilevel1_Ax_Channelx - Contains the parameters used for the multilevel1 run
 3. outputSpike_Ax_Channelx - Contains the location and sign of the detected spikes.
 
-Sequentail steps in MultiLevel1 are shown in Example_plots
-
-
+Detailed Documentation and Psuedocode are provided in 
+```{python}
+./spike_detection.rst
+```
