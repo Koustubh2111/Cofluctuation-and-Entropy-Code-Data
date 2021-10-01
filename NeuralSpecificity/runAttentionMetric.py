@@ -14,6 +14,7 @@ import numpy as np
 def getFilepaths(ml2_outputs):
 
     filepaths = []
+    print('Run through channel folders in ML2 folder of an animal')
     for folder in sorted(os.listdir(ml2_outputs)):
 
         for file in os.listdir(ml2_outputs + folder):
@@ -43,7 +44,7 @@ def runPigAM(
     after_buffer
 ):
 
-    os.nice(10)
+    #os.nice(10)
     # save default printing settings
     # write process to diary file
     default_output = sys.stdout
@@ -82,10 +83,10 @@ if __name__ == "__main__":
     maxProc = 4
     
     # special case name
-    special_case = '_1min_20minbuff'
+    special_case = '_20s_6minbuff'
     
     # special case ML2
-    special_case_ML2_output = ''
+    #special_case_ML2_output = ''
    
     #
     # DO NOT FORGET TO SET THE CHANNEL SPLIT LETTER
@@ -95,23 +96,27 @@ if __name__ == "__main__":
     
     # set before event buffer (secs)
     # use 300 sec buffer for 60 sec window
-    before_buffer = 1200.0
+    before_buffer = 360.0
     # set after event buffer (secs)
-    after_buffer = 1200.0
+    after_buffer = 360.0
 
     # Make sure directories DO NOT end in '/'
-    # ANIMAL: example /media/dal/AWS/pigdata/pig1234/ml2_output and NO '/' at end
 
-    ml2_dirlist = ['/Animal/ML2_Output']                   ]
+    #ML2 output directory without the '/' for traversal
+    ml2_dirlist = ['../Animals/Animal_Data/Animal1/ML2_Output',\
+                  '../Animals/Animal_Data/Animal2/ML2_Output']                  
 
     # ANIMAL: List the target files: CHOOSE ONE TARGET
-    # lvp, resp, or ecg as resp
+    # Contans 2mins of entropy
     targetfile_list = [
-                    'Animal/TargetFiles/Animal_lvp.mat']
+                    '../Animals/Animal_Data/Animal1/TargetFiles/A1_lvp.mat',\
+                    '../Animals/Animal_Data/Animal2/TargetFiles/A2_lvp.mat']
 
     # ANIMAL: list the comment files
+    #Contains the comment files to include the events used in the animal experiment  
     commentfile_list = [
-                        '/Animal/CommentFiles/Animal_comment_summary.csv']
+                        '../Animals/Animal_Data/Animal1/CommentFiles/Animal_comment_summary.csv',\
+                        '../Animals/Animal_Data/Animal2/CommentFiles/Animal_comment_summary.csv']
 
     # lvp: bad target lower and upper limits  
     badtarlower_list = [
@@ -131,23 +136,7 @@ if __name__ == "__main__":
                         np.inf,
                         ]
 
-    # ecg: bad target lower and upper limits  
-    #badtarlower_list = [
-    #                    #-0.8, 
-    #                    -0.8, 
-    #                    -0.8, 
-    #                    -0.8, 
-    #                    -0.2, 
-    #                    -0.3, 
-    #                    ]
-    #badtarupper_list = [
-    #                   0.8,
-    #                    0.8,
-    #                    0.8,
-    #                    0.8,
-    #                    0.2,
-    #                    0.3,
-    #                    ]
+
 
     # if different for animals then could change to list
     hasLVP = True
@@ -159,15 +148,20 @@ if __name__ == "__main__":
 
     pd.options.display.max_colwidth = 200
 
-
     for ml2_outputdir, target_file, comment_file, badtar_lower_lim, badtar_upper_lim in \
         zip(ml2_dirlist, targetfile_list, commentfile_list, badtarlower_list, badtarupper_list):
-            
+        
+        #ml2_outputdir  - one animal's channel ML2 output folders
+        #target_file - the .mat file of LVP of the same animal
+        #comment_file - thecomments of the animal
+    
         # special case ML_output
-        ml2_outputdir = ml2_outputdir + special_case_ML2_output
+	#ECG or RESP cases; different cases output names
+        #ml2_outputdir = ml2_outputdir + special_case_ML2_output
            
         # make comment file dataframe
         try:
+            #READ THE COMMENT FILE
             comment_df = pd.read_csv(comment_file)
             print('Found Comment File ',comment_file)
         except:
@@ -177,18 +171,20 @@ if __name__ == "__main__":
 
         # make the output directory
         # detect stuff past last '/'
-        #f = ml2_outputdir.split("/")[-1:][0]
-        f = "/media/dal/AWS/NormalAnimals/pig"
+        f = ml2_outputdir.split("/")[-1:][0] #The 'ML2_output' string of the animal
         print(f)
         # replacement done if using standard dir/channel/file naming
+
         # replace ML2_Output with AttentionMetric
-        #am_outputfolder = ml2_outputdir.replace(f, "AttentionMetric")
-        am_outputfolder =   f +\
-                            ml2_outputdir.split('_')[1] +\
-                            "/" +\
-                            "AttentionMetric" +\
-                            special_case_ML2_output +\
-                            special_case
+        replace_str = "NeuralSpecificity" + special_case
+        am_outputfolder = ml2_outputdir.replace(f, replace_str)
+
+        #am_outputfolder =   f +\
+        #                    ml2_outputdir.split('_')[1] +\
+        #                    "/" +\
+        #                    "AttentionMetric" +\
+        #                    #special_case_ML2_output +\
+        #                    special_case
         print(am_outputfolder)
         try:
             outdir = am_outputfolder
@@ -201,9 +197,6 @@ if __name__ == "__main__":
         print("os list ")
         print(os.listdir(ml2_outputdir))
 
-        # setting this up now is not sensible but will live with it for now
-        # best to do this inside the next for loop (ch, chN) and only loop
-        # through the os.listdir and put this at the top of that loop
         # make list of channel number
         chList = np.array([]).astype(int)
         testfilepaths = []
@@ -216,9 +209,10 @@ if __name__ == "__main__":
                     # if int(file[:-4].split('icn')[-1:][0]) in chan_select:
                     testfilepaths.append(ml2_outputdir + "/" + folder + "/" + file)                            
                     try: 
-                        chList = np.append(chList, int(folder.split(split_primary)[-1]))
+                        chList = np.append(chList, int(folder.split('_')[-1][-1])) #Channel_number as integer
                     except:
-                        chList = np.append(chList, int(folder.split(split_backup)[-1]))
+                        print('Exception thrown: Channel number invalid')
+                        #chList = np.append(chList, int(folder.split(split_backup)[-1]))
 
         # uncomment for debugging
         #print(testfilepaths)
@@ -226,6 +220,7 @@ if __name__ == "__main__":
         for (ch, chN) in zip(os.listdir(ml2_outputdir), chList):
 
             # get all Filepaths of uncurated (default=uncurated)
+            #Returns uncurated csvs of all channels of an animal
             filepaths = getFilepaths(ml2_outputdir + "/")
 
             # set channel output directory
@@ -242,9 +237,6 @@ if __name__ == "__main__":
                 outdir_ch = outdir_ch + now
                 os.mkdir(outdir_ch)
 
-            # OLD CODE
-            # grab channel number = ch: to find attention metric for later
-            # chN = int(ch.split('n')[-1])
 
             # init all channels to -9 = not used
             chListUsage = np.ones(len(filepaths)).astype(int) * -9

@@ -649,7 +649,7 @@ def AttentionMetric(
     hard_threshold=0.5,
     level_plus=1.5,
     level_minus=1.5,
-    window=60.0,
+    window=20.0, #Default changes to 20s for the surrogate data used
     down=10,
     num_bin=200,
     art_fraction=0.5,
