@@ -15,5 +15,4 @@ Detailed Documentation and Pseudocode have been provided in
 
 ```{python}
 ./neural_specificity_entropy.rst
-
 ```
