@@ -20,27 +20,12 @@ import seaborn as sns
 from statannot import add_stat_annotation
 
 
-HF_dir = '../HeartFailureAnimals/'
+HF_dir = '../HeartFailureAnimals/' #Entire Directory available upon request; complet ata not available in the repo
 HF_animal_list = os.listdir(HF_dir)[1:-4]
 EndBaseline = [15157.47730, '', 13782.64500, 14479.24235, 15010.85545, 20138.13390, '', '', '', 19488.27205, 19001.37350, \
                16823.12835, '']
-#drop 1768, 1770, 1844, channel  16 1774, channel 1 1767
-    
-"""
-1666 - PVC
-1669 - Not used
-1670 - RTX
-1690 - RTX
-1692 - RTX
-1767 - PVC
-1768 - Not used
-1769 - Not used
-1770 - Not used
-1774 - PVC
-1841 - PVC
-1843 - PVC
-1844 - Not used
-"""
+  
+
     
 label = ['P', \
          '',\
