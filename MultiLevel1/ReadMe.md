@@ -1,4 +1,4 @@
-# STEPS TO TEST MULTILEVEL 1
+## RUNNING MULTILEVEL 1
 
 ML1 must be run using the command
 
