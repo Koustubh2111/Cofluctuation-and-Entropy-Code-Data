@@ -104,14 +104,14 @@ Neural Specificity Algorithm : AttentionMetric::
 		For{(Start, End) in (StartIndex, EndIndex)}
 		{
 			Attention[Start, :] = histogram(tar[Start : End], NumBin)
-			Attention[Start, :] = SavGolFilter(Attention[Start, :], ???)
+			Attention[Start, :] = SavGolFilter(Attention[Start, :])
 			AttentionNotSet[Start] = 1
 		}
 	
 	
 		#Attention Random
 		RawStartIndex = (SpikeTime[StartIndex] - TarStart) / TarInterval
-		RawEndIndex = RawStartIndex $+$ (Window / TarInterval)
+		RawEndIndex = RawStartIndex + (Window / TarInterval)
 		
 		AttentionRandom = Zeros[len(StartIndex), NumBin]
 		AttentionSample = Zeros[len(StartIndex), NumBin]
